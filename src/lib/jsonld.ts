@@ -21,6 +21,22 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
 export function howToSchema(tool: { title: string; description: string }) {
   return { "@context": "https://schema.org", "@type": "HowTo", name: tool.title, description: tool.description };
 }
+export function webApplicationSchema(tool: { slug: string; title: string; description: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: tool.title,
+    description: tool.description,
+    url: `${siteConfig.url}/tools/${tool.slug}`,
+    applicationCategory: "DesignApplication",
+    operatingSystem: "Web",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "JPY",
+    },
+  };
+}
 export function breadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org", "@type": "BreadcrumbList",

@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import BlogCard from "@/components/BlogCard";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/data/site-config";
@@ -6,7 +7,8 @@ export const metadata = buildMetadata({ title: "ブログ", description: `${site
 export default function BlogListPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-2xl md:text-3xl font-bold mb-8">DIYブログ記事一覧</h1>
+      <Breadcrumb items={[{ name: "ブログ", href: "/blog" }]} />
+      <h1 className="text-2xl md:text-3xl font-bold mt-4 mb-8">DIYブログ記事一覧</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {articlesData.map((article) => (<BlogCard key={article.slug} article={article} />))}
       </div>
