@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://ai-diy-design.kuras-plus.com",
   theme: "orange" as const,
   amazonTag: "kurasplus-22",
-  ga4Id: "G-XXXXXXXXXX",
+  ga4Id: "G-EZV3R247M3",
   ogImage: "/images/og-default.png",
   twitterHandle: "",
   nav: [
