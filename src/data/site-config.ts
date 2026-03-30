@@ -10,6 +10,7 @@ export const siteConfig = {
   twitterHandle: "",
   nav: [
     { label: "ツール", href: "/tools" },
+    { label: "パーツ辞典", href: "/parts" },
     { label: "ブログ", href: "/blog" },
   ],
 };

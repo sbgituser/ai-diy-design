@@ -1,14 +1,18 @@
 import Link from "next/link";
 import ToolCard from "@/components/ToolCard";
 import BlogCard from "@/components/BlogCard";
+import PartCard from "@/components/PartCard";
 import { siteConfig } from "@/data/site-config";
 import toolsData from "@/data/tools.json";
 import articlesData from "@/data/articles.json";
+import partsData from "@/data/parts.json";
 import { buildMetadata } from "@/lib/seo";
+import type { Part } from "@/types/parts";
 
 export const metadata = buildMetadata({});
 
 export default function HomePage() {
+  const popularParts = (partsData as Part[]).slice(0, 6);
   return (
     <>
       <section className="bg-[var(--color-primary)] text-white py-16 px-4">
@@ -45,6 +49,18 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {toolsData.map((tool) => (
             <ToolCard key={tool.slug} tool={tool} />
+          ))}
+        </div>
+      </section>
+      <section className="max-w-6xl mx-auto px-4 pb-12">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">DIYパーツ辞典</h2>
+          <Link href="/parts" className="text-[var(--color-primary)] hover:underline text-sm">すべて見る →</Link>
+        </div>
+        <p className="text-gray-500 mb-4 text-sm">木材・金具・塗料・工具など、DIYに使うパーツを徹底解説。</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {popularParts.map((part) => (
+            <PartCard key={part.id} part={part} />
           ))}
         </div>
       </section>
